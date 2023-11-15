@@ -37,6 +37,21 @@ If you set `box-sizing: border-box;` on an element, padding and border are inclu
 
 Docs: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
 
+## Positioning
+
+The default positioning for the document flow is `static`. Other possible options for this property are:
+* `absolute`
+* `relative`
+* `fixed`
+* `sticky`
+
+Together with this property you can manipulate the vertical and horizontal offsets with `top`, `bottom`, `left` and `right`.
+
+`z-index` allow us to manage the layers of our HTML on the z-axis. By default all elements has this value set to 0. It can also accepts negative values. This property has impact only for elements with position different from `static`.
+
+Docs: https://developer.mozilla.org/en-US/docs/Web/CSS/position
+
+
 ## Resources
 
 * [Academind](https://discord.com/invite/gxvEWGU)
