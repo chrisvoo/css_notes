@@ -40,16 +40,26 @@ Docs: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
 ## Positioning
 
 The default positioning for the document flow is `static`. Other possible options for this property are:
-* `absolute`
-* `relative`
-* `fixed`
-* `sticky`
+* `absolute`: the element is removed from the normal document flow, and no space is created for the element in the page layout. The element is positioned relative to its closest positioned ancestor (if any) or to the initial containing block.
+* `relative`: the element is positioned according to the normal flow of the document, and then offset relative to itself based on the values of top, right, bottom, and left. The offset does not affect the position of any other elements; thus, the space given for the element in the page layout is the same as if position were static.
+* `fixed`: the element is removed from the normal document flow, and no space is created for the element in the page layout. The element is positioned relative to its initial containing block, which is the viewport in the case of visual media.
+* `sticky`: the element is positioned according to the normal flow of the document, and then offset relative to its nearest scrolling ancestor and containing block (nearest block-level ancestor), including table-related elements
 
 Together with this property you can manipulate the vertical and horizontal offsets with `top`, `bottom`, `left` and `right`.
 
 `z-index` allow us to manage the layers of our HTML on the z-axis. By default all elements has this value set to 0. It can also accepts negative values. This property has impact only for elements with position different from `static`.
 
-Docs: https://developer.mozilla.org/en-US/docs/Web/CSS/position
+Docs:
+* https://developer.mozilla.org/en-US/docs/Web/CSS/position
+* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context
+
+## Images
+When you use an `img` tag, the default behavior is to use its dimensions without considering the parent that's wrapping it. Same thing if you style the image and set `height: 100%;`: this won't work since it will use the original height. However, using `height: 100%;` on the image and setting `display: inline-block` and a descresed height on the parent container, will effectively reduce the image dimensions.
+
+## Units and dimensions
+When you specify a percentage for an element, the percentage refers to the parent containing that element. This allows the website to be dynamic when for example the viewport is resized.
+When you specify `px` as unit for fonts, even if you choose a larger font size in the browser properties, the text using pixels will stay the same.
+
 
 
 ## Resources
