@@ -5,16 +5,14 @@
     background-position: center;
     background-repeat: no-repeat;
     background-origin: border-box;
-    background-clip: border-box; */
-    /* here we apply different backgrounds, on different levels:display:
-     * on top the gradient,
-     * in the middle the image
-     * at the bottom the solid color */
-    background: linear-gradient(to top, rgba(80,60,18,0.6) 10%, transparent), url("../img/freedom.jpg") left 10% bottom 20%/cover no-repeat border-box, #ff1b68;
+    background-clip: border-box;
+
+    here we apply different backgrounds, on different levels:display:
+    on top the gradient, in the middle the image at the bottom the solid color */
+    background: linear-gradient(to top, rgba(80,60,18,0.6) 10%, transparent),
+                url("../img/freedom.jpg") center/cover no-repeat border-box, #ff1b68;
     width: 100%;
-    height: 528px;
-    padding: 10px;
-    margin-top: 43px;
+    height: 33vh;
     position: relative;
 }
 
@@ -24,29 +22,52 @@
     position: absolute;
     left: 3%;
     bottom: 5%;
+    font-size: 1.6rem
+}
+
+/* 640px = 40rem */
+@media (min-width: 40rem) and (min-height: 40rem) {
+    #product-overview {
+        height: 40vh;
+        background-position: 50% 25%;
+    }
+
+    #product-overview h1 {
+        font-size: 3rem
+    }
+}
+
+/* 960px = 60rem
+@media (min-width: 60rem) {
+    #product-overview {
+        height: 50vh;
+        background-position: 50% 25%;
+    }
+
+    #product-overview h1 {
+        font-size: 5rem
+    }
+}*/
+
+.section-title {
+    text-align: center;
+    color: #2ddf5c;
 }
 
 /* plans */
 .plan {
-    background-color: #d5ffdc;
+    background: #d5ffdc;
     text-align: center;
-    padding: 16px;
-    margin: 8px;
-    display: inline-block; /* same row */
-    width: 30%;
-    vertical-align: middle;
-}
-
-.plan__list {
-    text-align: center;
-    width: 80%;
-    margin: auto;
+    padding: 1rem;
+    margin: 0.5rem 0;
+     /* display: inline-block;same row */
+    width: 100%;
 }
 
 .plan__annotation {
-    background-color: white;
+    background: white;
     color: #19b84c;
-    padding: 8px;
+    padding: 0.5rem;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
 }
@@ -62,7 +83,6 @@
 .plan--highlighted {
     background-color: #19b84c;
     color: white;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5); /* rgba, alpha channel for transparency */
 }
 
 .plan--highlighted .plan__price {
@@ -80,18 +100,37 @@
 }
 
 .plan__feature {
-    margin: 8px 0;
+    margin: 0.5rem 0;
+}
+
+@media (min-width: 40rem) {
+    .plan {
+        min-width: 13rem;
+        max-width: 25rem;
+        display: inline-block; /* same row */
+        width: 30%;
+        vertical-align: middle;
+    }
+
+    .plan__list {
+        text-align: center;
+        width: 100%;
+    }
+
+    .plan--highlighted {
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+    }
 }
 
 #key-features {
     background: #ff1b68;
-    margin-top: 80px;
-    padding: 16px;
+    margin-top: 5rem;
+    padding: 1rem;
 }
 
 #key-features .section-title {
     color: white;
-    margin: 32px;
+    margin: 2rem;
 }
 
 .key-feature__list {
@@ -102,9 +141,16 @@
 }
 
 .key-feature {
-    display: inline-block;
-    width: 30%;
     vertical-align: top;
+}
+
+@media (min-width: 40rem) {
+    .key-feature {
+      display: inline-block;
+      width: 30%;
+      max-width: 25rem;
+      vertical-align: top;
+    }
 }
 
 .key-feature__image {
@@ -114,19 +160,14 @@
     border-radius: 50%;
     height: 128px;
     margin: auto; /* automatically fill the available space equally */
-    padding: 20px;
+    padding: 1.5rem;
 }
 
 .key-feature__description {
     color: white;
     font-weight: bold;
     text-align: center;
-    font-size: 20px;
-}
-
-.section-title {
-    text-align: center;
-    color: #2ddf5c;
+    font-size: 1.2rem;
 }
 
 /* pseudo-element
@@ -135,3 +176,52 @@
     font-size: 20px;
 } */
 
+/* modal */
+.modal {
+    position: fixed;
+    display: none;
+    z-index: 200;
+    top: 20%;
+    left: 30%;
+    width: 40%;
+    background: white;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.modal__title {
+    text-align: center;
+    margin: 0 0 1rem 0;
+}
+
+.modal__actions {
+    text-align: center;
+}
+
+.modal__action {
+    border: 1px solid #0e4f1f;
+    background: #0e4f1f;
+    text-decoration: none;
+    color: white;
+    font: inherit;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.modal__action:hover,
+.modal__action:active {
+    background: #2ddf5c;
+    border-color: #2ddf5c;
+}
+
+.modal__action--negative {
+    background: red;
+    border-color: red;
+}
+
+.modal__action--negative:hover,
+.modal__action--negative:active {
+    background: #ff5454;
+    border-color: #ff5454;
+}

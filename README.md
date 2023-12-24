@@ -1,4 +1,4 @@
-# css_notes
+# CSS notes
 Notes about CSS development
 
 ## block-level vs inline elements
@@ -35,7 +35,10 @@ If you set `box-sizing: border-box;` on an element, padding and border are inclu
 }
 ```
 
-Docs: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+### Links
+
+* https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+
 
 ## Positioning
 
@@ -57,10 +60,62 @@ Docs:
 When you use an `img` tag, the default behavior is to use its dimensions without considering the parent that's wrapping it. Same thing if you style the image and set `height: 100%;`: this won't work since it will use the original height. However, using `height: 100%;` on the image and setting `display: inline-block` and a descresed height on the parent container, will effectively reduce the image dimensions.
 
 ## Units and dimensions
-When you specify a percentage for an element, the percentage refers to the parent containing that element. This allows the website to be dynamic when for example the viewport is resized.
+When you specify a percentage for an element, the percentage refers to the parent containing that element. This allows the website to be dynamic when for example the viewport is resized. In case the element with the percentage has a positioning the percentage refers to different elements:
+* with `position: fixed`: the containing block it's the viewport.
+* with `position: absolute` refers instead to the closest ancestor plus its padding that has not a static position.
+* with `position: relative|static` refers instead to the closest ancestor's content which is a block level
+
 When you specify `px` as unit for fonts, even if you choose a larger font size in the browser properties, the text using pixels will stay the same.
 
+### Other units
+Pixel is referred as an absolute length. Viewport lengths refer to the viewport, that is the user's visible area of a web page. You can give the browser instructions on how to control the page's dimensions and scaling through a meta tag:
 
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+The `width=device-width` part sets the width of the page to follow the screen-width of the device (which will vary depending on the device). The `initial-scale=1.0` part sets the initial zoom level when the page is first loaded by the browser.
+Then there are font-relative lengths (`rem`, `em`) and finally the percentages.
+
+
+* `root em (rem)`: it's calculated based on the actual size of the element and multiplied by the root element (html). 1 rem ~ 16px
+* `em`: it's calculated based on the actual size of the element and multiplied by the other applied values.
+* `viewport height (vh)`: adjust to current viewport height.
+* `viewport width (vw)`: adjust to current viewport width.
+
+![Elements and recommended units](./assets/units.png "Elements and recommended units")
+
+### Links
+
+* [Hiding Vertical Scrollbars with Pure CSS in Chrome, IE (6+), Firefox, Opera, and Safari](https://web.archive.org/web/20180505112131/https://blogs.msdn.microsoft.com/kurlak/2013/11/03/hiding-vertical-scrollbars-with-pure-css-in-chrome-ie-6-firefox-opera-and-safari/)
+
+## Responsive Design
+
+The absolute length units are fixed in relation to each other and anchroed to some physical measurement. They are mainly useful when the output environment is known. The absolute units consist of the physical units ('in', 'cm', 'mm', etc) and the visual angle unit ('px').
+
+```
+1 inch = 2.54cm = 96px
+```
+
+### Viewport metatag
+
+In a moden mobile phone there's a high pixel density that leads to the problem of visualizing a site way too small if we do not use the viewport metatag with the appropriate content.
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+This metatag adjust the site to the device viewport. It just translates the pixels according to the pixel ratio. `initial-scale` regulates the initial zoom, the greater the number the greater the zoom.
+
+### Media queries
+
+Media queries change design - according to our definitions - depending on size. Usually you define conditions based of the viewport's width. Choosing breaking points (width threshold for customizing your CSS rules) may be based on [common devices width](https://yesviz.com/viewport/).
+
+
+### Links
+
+* [Viewport meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag)
+* [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries)
 
 ## Resources
 
