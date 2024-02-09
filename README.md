@@ -117,6 +117,42 @@ Media queries change design - according to our definitions - depending on size. 
 * [Viewport meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag)
 * [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries)
 
+## Fonts and text
+
+* Generic families: define specific core attributes of the fonts. Example are `serif`, `sans-serif`, `cursive`, `monospace`, `fantasy`.
+* Font families: they're specific fonts included in a generic family. For example, have Times New Roman and Georgia are part of serif generic family.
+
+By default if you do not specify any style, what will be displayed is defined by the browser's style. If you specify a generic family without specifying a specific font family, the browser will chose the geenric family defined in its settings. When you specify a font family this is not influenced by the browser's settings. In the last case, it's better to choose a web font, so that it can be downloaded by any browser.
+
+For 90%+ of the cases you likely want the `<link>` tag. As a rule of thumb, you want to avoid `@import` rules because they defer the loading of the included resource until the file is fetched and if you have a build process which "flattens" the @import's, then you create another problem with web fonts: dynamic providers like Google WebFonts serve platform-specific versions of the fonts, so if you simply inline the content, then you'll end up with broken fonts on some platforms.
+Now, why would you use the web font loader? If you need complete control over how the fonts are loaded. Most browsers will defer painting the content to the screen until all of the CSS is downloaded and applied - this avoids the "flash of unstyled content" problem. The downside is you may have an extra pause and delay until the content is visible. With the JS loader, you can define how and when the fonts become visible for example, you can even fade them in after the original content is painted on the screen.
+Once again, the 90% case is the `<link>` tag: use a good CDN and the fonts will come down quick and even more likely, be served out of the cache.
+Google Web Fonts tag now uses `rel="preconnect"`. This will speed up DNS and the TLS / TCP connection to the server without using up bandwidth right away in downloading the font.
+
+### Links
+
+* [Make the Web Fast: Google Web Fonts - making pretty, fast!](https://www.youtube.com/watch?v=sqesm0euf9M)
+
+## Flexbox
+Applying the `display: flex` property to an element, turns this element into a flex container. The nested elements are called flex items.
+Parent properties:
+* flex-flow
+* justify-content
+* align-content
+* align-items
+
+Children properties:
+* order
+* flex
+* align-self
+
+![Align items and justify content](./assets/flexbox1.png "Align items and justify content")
+
+### Links
+
+* [Basic concepts of Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
+
+
 ## Resources
 
 * [Academind](https://discord.com/invite/gxvEWGU)
