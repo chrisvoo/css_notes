@@ -135,22 +135,31 @@ Google Web Fonts tag now uses `rel="preconnect"`. This will speed up DNS and the
 
 ## Flexbox
 Applying the `display: flex` property to an element, turns this element into a flex container. The nested elements are called flex items.
-Parent properties:
-* flex-flow
-* justify-content
-* align-content
-* align-items
 
-Children properties:
-* order
-* flex
-* align-self
+![Flex properties](./assets/flex2.png "Flex propertie")
 
 ![Align items and justify content](./assets/flexbox1.png "Align items and justify content")
+
+Usually dding the z-index to an element only has an effect, if the position property with a value different from static was applied to this element. One exception from this behaviour is flexbox: applying the z-index to flex-items (so the elements inside of the flex-container) will change the order of these items even if no position property was applied.
 
 ### Links
 
 * [Basic concepts of Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
+* [A complete guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+## CSS Grid
+
+Elements that aren't pat of the document flow (fixed and absolute elements for example) are not considered for the rows.
+
+### Links
+
+* https://grid.malven.co
+* https://css-tricks.com/snippets/css/complete-guide-grid/
+* https://www.freecodecamp.org/news/css-grid-tutorial-with-cheatsheet/
+* https://yoksel.github.io/grid-cheatsheet/
+* https://alialaa.github.io/css-grid-cheat-sheet/
+* https://dev.to/simonpaix/css-grid-cheat-sheet-2ll8
+
 
 
 ## Resources
