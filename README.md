@@ -161,6 +161,11 @@ Elements that aren't pat of the document flow (fixed and absolute elements for e
 * https://dev.to/simonpaix/css-grid-cheat-sheet-2ll8
 
 
+## CSS variables
+
+Useful for avoid duplication. You can use a pseudo element like `:root` to define all your variables, but also a real tag. In this last case, the variable will be visible only in that elements (and sub-elements). Probably another good candidate is `html`.
+
+![CSS variables](./assets/css_vars.png "CSS variables")
 
 ## Resources
 

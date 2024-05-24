@@ -3,15 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>uHost</title>
-    <link rel="stylesheet" href="../../css/shared.css">
-    <link rel="stylesheet" href="../../css/pages/start-hosting.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>uHost Signup</title>
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="stylesheet" href="start-hosting.css">
 </head>
 
 <body>
-    <div class="background"></div>
+    <div class="backdrop"></div>
     <header class="main-header">
         <div>
             <button class="toggle-button">
@@ -19,10 +20,10 @@
                 <span class="toggle-button__bar"></span>
                 <span class="toggle-button__bar"></span>
             </button>
-            <a href="../../index.html" class="main-header__brand">
-                <img src="../../img/uhost-icon.png" alt="logo">
+            <a href="../index.html" class="main-header__brand">
+                <img src="../images/uhost-icon.png" alt="uHost - Your favorite hosting company">
             </a>
-        </div><!-- carriage return takes extra space! -->
+        </div>
         <nav class="main-nav">
             <ul class="main-nav__items">
                 <li class="main-nav__item">
@@ -32,7 +33,7 @@
                     <a href="../customers/index.html">Customers</a>
                 </li>
                 <li class="main-nav__item main-nav__item--cta">
-                    <a href="../start-hosting/index.html">Start Hosting</a>
+                    <a href="index.html">Start Hosting</a>
                 </li>
             </ul>
         </nav>
@@ -40,13 +41,13 @@
     <nav class="mobile-nav">
         <ul class="mobile-nav__items">
             <li class="mobile-nav__item">
-                <a href="../../index.html">Packages</a>
+                <a href="../packages/index.html">Packages</a>
             </li>
             <li class="mobile-nav__item">
-                <a href="index.html">Customers</a>
+                <a href="../customers/index.html">Customers</a>
             </li>
             <li class="mobile-nav__item mobile-nav__item--cta">
-                <a href="../../index.html">Start Hosting</a>
+                <a href="index.html">Start Hosting</a>
             </li>
         </ul>
     </nav>
@@ -54,7 +55,7 @@
         <h1 class="signup-title">Awesome! Let's dive right in!</h1>
         <form action="index.html" class="signup-form">
             <label for="title">Title</label>
-            <select id="title" class="invalid">
+            <select id="title">
                 <option value="mr">Mr.</option>
                 <option value="ms">Ms.</option>
             </select>
@@ -63,13 +64,15 @@
             <label for="last-name">Last name</label>
             <input type="text" id="last-name" required>
             <label for="email">E-Mail</label>
-            <input type="email" id="email" required><span></span>
+            <input type="email" id="email" required>
             <label for="password">Password</label>
-            <input type="password" id="password">
-            <input type="checkbox" id="agree-terms" class="invalid" required>
-            <label for="agree-terms">Agree to
-                <a href="#">Terms &amp; Conditions</a>
-            </label>
+            <input type="password" id="password" required>
+            <div class="signup-form__checkbox">
+                <input type="checkbox" id="agree-terms" required>
+                <label for="agree-terms">Agree to
+                    <a href="#">Terms &amp; Conditions</a>
+                </label>
+            </div>
             <button type="submit" class="button">Sign Up</button>
         </form>
     </main>
@@ -85,7 +88,7 @@
             </ul>
         </nav>
     </footer>
-    <script src="../../js/shared.js"></script>
+    <script src="../shared.js"></script>
 </body>
 
 </html>
